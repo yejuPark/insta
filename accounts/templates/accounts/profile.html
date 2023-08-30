@@ -19,10 +19,10 @@
   </div>
 </div>
 
-<div class="row row-cols-3">
+<div class="row row-cols-3 mt-5">
   {% for post in user_info.post_set.all %}
   <div class="col">
-    <div class="card mt-5">
+    <div class="card">
       <img src="{{post.image.url}}" alt="">
     </div>
   </div>
