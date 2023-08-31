@@ -9,7 +9,17 @@
   <div class="col-8 mt-4">
     <div class="row">
       <div class="col-4">name : {{user_info.username}}</div>
-      <div class="col-4"><a href="">follow</a></div>
+
+      {% if user != user_info %}
+        <div class="col-4">
+          {% if user in user_info.followers.all %}
+            <a href="{% url 'accounts:follow' username=user_info.username %}" class="btn btn-primary btn-sm">following</a>
+          {% else %}
+            <a href="{% url 'accounts:follow' username=user_info.username %}" class="btn btn-secondary btn-sm">follow</a>
+          {% endif %}
+        </div>
+      {% endif %}
+      
     </div>
     <div class="row mt-5">
       <div class="col">Post</div>
