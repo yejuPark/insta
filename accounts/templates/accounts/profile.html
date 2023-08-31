@@ -19,12 +19,12 @@
           {% endif %}
         </div>
       {% endif %}
-      
+
     </div>
     <div class="row mt-5">
-      <div class="col">Post</div>
-      <div class="col">following</div>
-      <div class="col">follower</div>
+      <div class="col">Post {{user_info.post_set.all | length}}</div>
+      <div class="col">follower {{user_info.followers.all | length}}</div>
+      <div class="col">follow {{user_info.followings.all | length}}</div>
     </div>
   </div>
 </div>
