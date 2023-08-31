@@ -14,12 +14,15 @@
     <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
   </div>
   <div class="card-footer">
-    <form action="{% url 'posts:comment_create' post_id=post.id %}" method="POST">
-      {% csrf_token %}
-      {% bootstrap_form comment_form %}
-      <input type="submit">
-    </form>
-    <hr>
+    {% if user.is_authenticated %}
+      <form action="{% url 'posts:comment_create' post_id=post.id %}" method="POST">
+        {% csrf_token %}
+        {% bootstrap_form comment_form %}
+        <input type="submit">
+      </form>
+      <hr>
+    {% endif %}
+
     {% for comment in post.comment_set.all %}
       <li>{{comment.user}} : {{comment.content}}</li>
     {% endfor %}
