@@ -2,7 +2,12 @@
 {% load bootstrap5 %}
 
 {% block body %}
-<h1>Signup</h1>
+
+{% if request.resolver_match.url_name == 'signup' %}
+  <h1>Signup</h1>
+{% else %}
+  <h1>Login</h1>
+{% endif %}
 <hr>
 <form action="" method="POST" enctype="multipart/form-data">
   {% csrf_token %}
