@@ -7,8 +7,9 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         {% if user.is_authenticated %}
+          <a class="nav-link" href="{% url 'accounts:profile' username=user %}">name : {{request.user}}</a>
           <a class="nav-link" href="{% url 'posts:create' %}">Create</a>
-          <a class="nav-link" href="{% url 'accounts:profile' username=user %}">{{request.user}}</a>
+          <a class="nav-link" href="{% url 'accounts:logout' %}">logout</a>
         {% else %}
           <a class="nav-link" href="{% url 'accounts:signup' %}">Signup</a>
           <a class="nav-link" href="{% url 'accounts:login' %}">login</a>

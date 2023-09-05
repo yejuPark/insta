@@ -21,6 +21,7 @@
     <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
   </div>
   <div class="card-footer">
+    
     {% if user.is_authenticated %}
       <form action="{% url 'posts:comment_create' post_id=post.id %}" method="POST">
         {% csrf_token %}
