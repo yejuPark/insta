@@ -1,9 +1,20 @@
 {% load bootstrap5 %}
 <div class="card mt-5">
   <div class="card-header">
-    <p>
+    <p class="mt-2">
       <img src="{{post.user.profile_image.url}}" alt="" class="rounded-circle" width="50px">
-      <a href="{% url 'accounts:profile' username=post.user %}" class="text-reset text-decoration-none">{{post.user}}</a>
+      <a href="{% url 'accounts:profile' username=post.user %}" class="text-reset text-decoration-none m-3">{{post.user}}</a>
+      
+      {% if request.user.is_authenticated %}
+      {% if request.user == post.user %}
+      <input type="button" class="btnDelete btn btn-outline-danger btn-sm mt-2" style="float:right" value="delete" onclick="deletePost({{post.id}})">
+      <script>
+      function deletePost(id) {
+        location.href = `/posts/${id}/delete/`
+      }
+      </script>
+      {% endif %}
+      {% endif %}
     </p>
   </div>
   <img src="{{post.image.url}}" alt="...">

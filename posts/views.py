@@ -92,3 +92,11 @@ def like_async(request, post_id):
   }
 
   return JsonResponse(context)
+
+
+
+@login_required
+def delete(request, post_id):
+  post = Post.objects.get(id=post_id)
+  post.delete()
+  return redirect('posts:index')
