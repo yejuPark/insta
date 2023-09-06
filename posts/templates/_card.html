@@ -21,7 +21,7 @@
   <div class="card-body" style="font-family: 'Abel', sans-serif;">
     <!-- <h5 class="card-title">{{post.title}}</h5> -->
     {% if user in post.like_users.all %}
-      <i class="bi bi-heart-fill heart font-monospace" style="color: red" data-post-id="{{post.id}}">{{post.like_users.all|length}}</i> 
+      <i class="bi bi-heart-fill heart" style="color: red" data-post-id="{{post.id}}">{{post.like_users.all|length}}</i> 
     {% else %}
       <i class="bi bi-heart heart" data-post-id="{{post.id}}">{{post.like_users.all|length}}</i>
     {% endif %}
@@ -43,11 +43,17 @@
     {% endif %}
 
     {% for comment in post.comment_set.all %}
-      <li>{{comment.user}} : {{comment.content}}
-        {% if request.user == comment.user %}
-        <a class="text-decoration-none m-3" style="color:red; float:center --bs-btn-padding-y: .5rem; --bs-btn-padding-x: .3rem; --bs-btn-font-size: .70rem"
-        href="{% url 'posts:comment_delete' post_id=post.id id=comment.id %}">X</a>
-        {% endif %}
+      <li>
+        <div class="d-inline">
+          <div class="d-inline">
+            {{comment.user}} : {{comment.content}}
+          </div>
+          {% if request.user == comment.user %}
+            <button class="btn btn-warning btn-sm btn-update" data-comment-id="{{comment.id}}" data-post-id="{{post.id}}">EDIT</button>
+            <a class="text-decoration-none m-3" style="color:red; float:center --bs-btn-padding-y: .5rem; --bs-btn-padding-x: .3rem; --bs-btn-font-size: .70rem"
+            href="{% url 'posts:comment_delete' post_id=post.id id=comment.id %}">X</a>
+          {% endif %}
+        </div>
       </li>
     {% endfor %}
   </div>
