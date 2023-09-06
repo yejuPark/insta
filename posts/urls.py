@@ -10,5 +10,7 @@ urlpatterns = [
   path('<int:post_id>/like/', views.like, name='like'),
   path('<int:post_id>/like-async/', views.like_async, name='like_async'),
   path('<int:post_id>/delete/', views.delete, name='delete'),
+  path('<int:post_id>/comments/<int:id>/delete/', views.comment_delete, name='comment_delete'),
+
 
 ]
