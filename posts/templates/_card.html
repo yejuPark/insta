@@ -1,9 +1,9 @@
 {% load bootstrap5 %}
-<div class="card mt-5">
+<div class="card mt-5 text-bg-dark border-secondary" style="max-width:45rem">
   <div class="card-header">
     <p class="mt-2">
       <img src="{{post.user.profile_image.url}}" alt="" class="rounded-circle" width="50px">
-      <a href="{% url 'accounts:profile' username=post.user %}" class="text-reset text-decoration-none m-3">{{post.user}}</a>
+      <a href="{% url 'accounts:profile' username=post.user %}" class="text-reset text-decoration-none m-3 fs-5" style="font-family: 'Phudu', cursive;">{{post.user}}</a>
       
       {% if request.user.is_authenticated %}
       {% if request.user == post.user %}
@@ -18,10 +18,10 @@
     </p>
   </div>
   <img src="{{post.image.url}}" alt="...">
-  <div class="card-body">
+  <div class="card-body" style="font-family: 'Abel', sans-serif;">
     <!-- <h5 class="card-title">{{post.title}}</h5> -->
     {% if user in post.like_users.all %}
-      <i class="bi bi-heart-fill heart" style="color: red" data-post-id="{{post.id}}">{{post.like_users.all|length}}</i> 
+      <i class="bi bi-heart-fill heart font-monospace" style="color: red" data-post-id="{{post.id}}">{{post.like_users.all|length}}</i> 
     {% else %}
       <i class="bi bi-heart heart" data-post-id="{{post.id}}">{{post.like_users.all|length}}</i>
     {% endif %}

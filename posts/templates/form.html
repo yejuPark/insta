@@ -2,9 +2,9 @@
 {% load bootstrap5 %}
 
 {% block body %}
-  <form action="" method="POST" enctype="multipart/form-data">
+  <form class="mt-5 pt-5 my-5 pb-5" action="" method="POST" enctype="multipart/form-data" data-bs-theme="dark">
     {% csrf_token %}
     {% bootstrap_form form %}
-    <input type="submit">
+    <input type="submit" class="btn btn-outline-warning">
   </form>
 {% endblock %}

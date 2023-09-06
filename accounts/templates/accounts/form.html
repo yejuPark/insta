@@ -3,16 +3,20 @@
 
 {% block body %}
 
-{% if request.resolver_match.url_name == 'signup' %}
+<div class="mt-5 mb-5 pt-4">
+  {% if request.resolver_match.url_name == 'signup' %}
   <h1>Signup</h1>
-{% else %}
+  {% else %}
   <h1>Login</h1>
-{% endif %}
+  {% endif %}
+</div>
 <hr>
-<form action="" method="POST" enctype="multipart/form-data">
-  {% csrf_token %}
-  {% bootstrap_form form %}
-  <input type="submit">
-</form>
+<div class="mt-5 mb-5">
+  <form action="" method="POST" enctype="multipart/form-data" data-bs-theme="dark">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input type="submit" class="btn btn-outline-warning">
+  </div>
+  </form>
 
 {% endblock %}
