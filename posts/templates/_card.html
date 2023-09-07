@@ -49,9 +49,9 @@
             {{comment.user}} : {{comment.content}}
           </div>
           {% if request.user == comment.user %}
-            <button class="btn btn-warning btn-sm btn-update" data-comment-id="{{comment.id}}" data-post-id="{{post.id}}">EDIT</button>
-            <a class="text-decoration-none m-3" style="color:red; float:center --bs-btn-padding-y: .5rem; --bs-btn-padding-x: .3rem; --bs-btn-font-size: .70rem"
-            href="{% url 'posts:comment_delete' post_id=post.id id=comment.id %}">X</a>
+          <a class="text-decoration-none m-3" style="color:red; float:center --bs-btn-padding-y: .5rem; --bs-btn-padding-x: .3rem; --bs-btn-font-size: .70rem"
+          href="{% url 'posts:comment_delete' post_id=post.id id=comment.id %}">X</a>
+          <button class="btn btn-warning btn-sm btn-update" data-comment-id="{{comment.id}}" data-post-id="{{post.id}}" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">EDIT</button>
           {% endif %}
         </div>
       </li>

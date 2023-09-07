@@ -92,7 +92,7 @@
       submitButton.setAttribute('type', 'submit')
 
       submitButton.addEventListener('click', async (e)=>{
-        e.preventDefault
+        e.preventDefault()
         const form = e.target.parentElement.parentElement
         const content = form.querySelector('input[name="content"]')
 
@@ -105,7 +105,7 @@
         const result = await postCommentUpdate(formData, postId, commentId)
 
         // 새로운 댓글로 수정
-        commentDiv.querySelector('div').iinnerText = `${result.user} : ${result.newContent}`
+        commentDiv.querySelector('div').innerText = `${result.user} : ${result.newContent}`
         // 숨긴 부분 보이게
         commentDiv.classList.remove('d-none')
         // form 제거
